@@ -1,15 +1,16 @@
-package org.aelion.jeecard.services;
+package org.aelion.jeecard.services.impl;
 
 import org.aelion.jeecard.dto.CardSetsDto;
 import org.aelion.jeecard.entities.PlayingCard;
+import org.aelion.jeecard.services.Game;
 import org.aelion.jeecard.utils.Data;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-@Service
-public class BattleService {
+@Service("battle")
+public class BattleServiceImpl implements Game {
     public CardSetsDto distribute() {
         // Get full cards deck from Data class
         ArrayList<PlayingCard> deck = (ArrayList<PlayingCard>) Data.createDeck();
