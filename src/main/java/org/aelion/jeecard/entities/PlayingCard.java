@@ -1,5 +1,6 @@
 package org.aelion.jeecard.entities;
 
+@Entity
 public final class PlayingCard extends Card {
     private String card;
 
