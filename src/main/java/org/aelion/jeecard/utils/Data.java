@@ -38,6 +38,28 @@ public class Data {
         return cards;
     }
 
+    public static List<PlayingCard> createShortDeck() {
+        ArrayList<PlayingCard> cards = new ArrayList<>();
+
+        for (Family family : Family.values()) {
+            for (String figure : Data.cards) {
+                if (Data.isUnder6(figure)) {
+                    ((BuilderImpl) Data.builder)
+                            .card(figure)
+                            .family(family);
+
+                    try {
+                        cards.add(Data.builder.build());
+                    } catch (Exception e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return cards;
+    }
+
     public static Set<PlayingCard> setupDesk() {
         HashSet<PlayingCard> cards = new HashSet<>();
 
@@ -81,5 +103,14 @@ public class Data {
         }
         return playerDesk;
 
+    }
+
+    public static boolean isUnder6(String figure) {
+        return
+                !figure.equals("2")
+                && !figure.equals("3")
+                && !figure.equals("4")
+                && !figure.equals("5")
+                && !figure.equals("6");
     }
 }

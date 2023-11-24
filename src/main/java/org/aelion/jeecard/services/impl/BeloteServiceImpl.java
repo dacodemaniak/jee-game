@@ -40,4 +40,38 @@ public class BeloteServiceImpl implements Game {
 
 
     }
+
+    private void jeromeMethod() {
+        var desk = Data.createDeck();
+        var beloteDesk = new ArrayList<PlayingCard>();
+
+        for (int i = 0; i < desk.size(); i++) {
+            if (
+                    !desk.get(i).getCard().equals("2")
+                    && !desk.get(i).getCard().equals("3")
+                    && !desk.get(i).getCard().equals("4")
+                    && !desk.get(i).getCard().equals("5")
+                    && !desk.get(i).getCard().equals("6")
+            ) {
+                beloteDesk.add(desk.get(i));
+            }
+        }
+    }
+
+    private void wMethod() {
+        var deck = ((ArrayList<PlayingCard>) Data.createDeck());
+
+        for (var pc : deck) {
+            if (
+                    pc.getCard().equals("2")
+                            || pc.getCard().equals("3")
+                            || pc.getCard().equals("4")
+                            || pc.getCard().equals("5")
+                            || pc.getCard().equals("6")
+            ) {
+                deck.remove(pc);
+            }
+        }
+
+    }
 }
